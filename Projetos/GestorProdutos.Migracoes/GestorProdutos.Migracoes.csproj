@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentMigrator" Version="3.2.7" />
+    <PackageReference Include="FluentMigrator.Runner" Version="3.2.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GestorProdutos.Base\GestorProdutos.Base\GestorProdutos.Base.csproj" />
+  </ItemGroup>
+
+</Project>
