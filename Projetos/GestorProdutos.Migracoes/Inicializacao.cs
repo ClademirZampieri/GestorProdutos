@@ -1,13 +1,13 @@
 using FluentMigrator.Runner;
 using FluentMigrator.Runner.VersionTableInfo;
+using GestorProdutos.Base.Enums;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using NDD.MicroServico.Base.Repositorios;
 using System;
 using System.Reflection;
 
-namespace NDD.Licenciamento.Migracoes
+namespace NDD.GestorProdutos.Migracoes
 {
     public static class Inicializacao
     {

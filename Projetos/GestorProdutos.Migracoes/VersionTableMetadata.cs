@@ -1,12 +1,12 @@
 using FluentMigrator.Runner.VersionTableInfo;
 
-namespace NDD.Licenciamento.Migracoes
+namespace NDD.GestorProdutos.Migracoes
 {
     public class VersionTableMetadata : IVersionTableMetaData
     {
         public object ApplicationContext { get; set; }
 
-        public virtual string SchemaName => "Licenciamento";
+        public virtual string SchemaName => "dbo";
 
         public virtual string TableName => "VersionInfo";
 

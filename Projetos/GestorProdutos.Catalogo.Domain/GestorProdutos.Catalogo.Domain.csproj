@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GestorProdutos.Core\GestorProdutos.Core.csproj" />
+    <ProjectReference Include="..\GestorProdutos.Infra\GestorProdutos.Infra.csproj" />
+  </ItemGroup>
+
+</Project>

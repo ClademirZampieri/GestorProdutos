@@ -1,16 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentMigrator" Version="3.2.7" />
     <PackageReference Include="FluentMigrator.Runner" Version="3.2.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\GestorProdutos.Base\GestorProdutos.Base\GestorProdutos.Base.csproj" />
+    <ProjectReference Include="..\GestorProdutos.Catalogo.Domain\GestorProdutos.Catalogo.Domain.csproj" />
   </ItemGroup>
 
 </Project>
