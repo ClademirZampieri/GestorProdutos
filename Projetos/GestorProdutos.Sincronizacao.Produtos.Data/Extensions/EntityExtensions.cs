@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 
-namespace GestorProdutos.Front.Produtos.Data.Extensions
+namespace GestorProdutos.Sincronizacao.Produtos.Data.Extensions
 {
     public static class EntityExtensions
     {

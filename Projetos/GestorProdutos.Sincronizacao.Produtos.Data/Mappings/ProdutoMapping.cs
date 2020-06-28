@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using GestorProdutos.Catalogo.Domain;
 
-namespace GestorProdutos.Front.Produtos.Data.Mappings
+namespace GestorProdutos.Sincronizacao.Produtos.Data.Mappings
 {
     public class ProdutoMapping : IEntityTypeConfiguration<Produto>
     {

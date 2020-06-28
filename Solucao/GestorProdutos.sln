@@ -25,7 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestorProdutos.Infra", "..\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestorProdutos.WebApp.MVC", "..\Projetos\GestorProdutos.WebApp.MVC\GestorProdutos.WebApp.MVC.csproj", "{5E71A2FD-F48F-4204-AD7F-F08A8B01589B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestorProdutos.Catalogo.Data", "..\Projetos\GestorProdutos.Catalogo.Data\GestorProdutos.Catalogo.Data.csproj", "{903AC128-F817-40DD-A102-1A559A5666BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestorProdutos.Front.Produtos.Data", "..\Projetos\GestorProdutos.Catalogo.Data\GestorProdutos.Front.Produtos.Data.csproj", "{903AC128-F817-40DD-A102-1A559A5666BF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestorProdutos.Catalogo.Domain", "..\Projetos\GestorProdutos.Catalogo.Domain\GestorProdutos.Catalogo.Domain.csproj", "{787F5F73-C5C9-4B8D-9004-2D7DC4B79676}"
 EndProject
@@ -35,9 +35,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestorProdutos.Negocio", ".
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestorProdutos.Application", "..\Projetos\GestorProdutos.Application\GestorProdutos.Application.csproj", "{FEF3D03D-E51B-4873-85E8-8F51E8154F34}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NDD.MicroServico.Base.Hosting", "..\Projetos\NDD.MicroServico.Base.Hosting\NDD.MicroServico.Base.Hosting.csproj", "{24F35CA7-5A01-4AD1-8C7E-22270FF82550}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestorProdutos.Base.Hosting", "..\Projetos\NDD.MicroServico.Base.Hosting\GestorProdutos.Base.Hosting.csproj", "{24F35CA7-5A01-4AD1-8C7E-22270FF82550}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NDD.MicroServico.Base.Schedulador.Quartz", "..\Projetos\NDD.MicroServico.Base.Schedulador.Quartz\NDD.MicroServico.Base.Schedulador.Quartz.csproj", "{AC45D24C-1C8F-4FF4-800E-E4E84CF250DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestorProdutos.Base.Schedulador.Quartz", "..\Projetos\NDD.MicroServico.Base.Schedulador.Quartz\GestorProdutos.Base.Schedulador.Quartz.csproj", "{AC45D24C-1C8F-4FF4-800E-E4E84CF250DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestorProdutos.Sincronizacao.Produtos.Data", "..\Projetos\GestorProdutos.Sincronizacao.Produtos.Data\GestorProdutos.Sincronizacao.Produtos.Data.csproj", "{31742409-8D2E-4817-893C-DCAEF6A000E1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -97,6 +99,10 @@ Global
 		{AC45D24C-1C8F-4FF4-800E-E4E84CF250DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC45D24C-1C8F-4FF4-800E-E4E84CF250DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC45D24C-1C8F-4FF4-800E-E4E84CF250DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31742409-8D2E-4817-893C-DCAEF6A000E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31742409-8D2E-4817-893C-DCAEF6A000E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31742409-8D2E-4817-893C-DCAEF6A000E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31742409-8D2E-4817-893C-DCAEF6A000E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -115,6 +121,7 @@ Global
 		{FEF3D03D-E51B-4873-85E8-8F51E8154F34} = {CAE131FE-883E-406F-A68B-5C01C0AB7EB6}
 		{24F35CA7-5A01-4AD1-8C7E-22270FF82550} = {3E1A1BB7-5120-4FB5-98B7-EF1221FD1144}
 		{AC45D24C-1C8F-4FF4-800E-E4E84CF250DD} = {3E1A1BB7-5120-4FB5-98B7-EF1221FD1144}
+		{31742409-8D2E-4817-893C-DCAEF6A000E1} = {3E1A1BB7-5120-4FB5-98B7-EF1221FD1144}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7AA5BEFA-1CB0-47AA-B4F2-93808ED92157}

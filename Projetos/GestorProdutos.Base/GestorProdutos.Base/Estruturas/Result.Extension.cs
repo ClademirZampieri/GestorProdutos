@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace NDD.CentralSolucoes.Base.Estruturas
+namespace GestorProdutos.Base.Estruturas
 {
     using static Helpers;
 

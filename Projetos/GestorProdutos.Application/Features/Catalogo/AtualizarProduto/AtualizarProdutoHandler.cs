@@ -3,7 +3,7 @@ using GestorProdutos.Base.Respostas;
 using GestorProdutos.Negocio.Services;
 using GestorProdutos.Negocio.ViewModels;
 using MediatR;
-using NDD.CentralSolucoes.Base.Estruturas;
+using GestorProdutos.Base.Estruturas;
 using System;
 using System.Threading;
 using System.Threading.Tasks;

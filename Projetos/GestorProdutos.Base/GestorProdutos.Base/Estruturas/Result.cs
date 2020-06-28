@@ -1,6 +1,6 @@
 using System;
 
-namespace NDD.CentralSolucoes.Base.Estruturas
+namespace GestorProdutos.Base.Estruturas
 {
     using static Helpers;
 

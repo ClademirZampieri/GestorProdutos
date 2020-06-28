@@ -11,12 +11,12 @@ namespace GestorProdutos.Negocio.RNA.Sincronizacao.ProcessarDados
 {
     public class ProcessarDadosImpl : IProcessarDados
     {
-        private readonly IProdutoRepository _produtoRepository;
+        private readonly IProdutoSincronizacaoRepository _produtoRepository;
         private readonly IApiSincronizacaoClient _apiSincronizacaoClient;
         private readonly IMapper _mapeamento;
         private readonly ILogger<ProcessarDadosImpl> _logger;
 
-        public ProcessarDadosImpl(IProdutoRepository produtoRepository, IApiSincronizacaoClient apiSincronizacaoClient, IMapper mapeamento, ILogger<ProcessarDadosImpl> logger)
+        public ProcessarDadosImpl(IProdutoSincronizacaoRepository produtoRepository, IApiSincronizacaoClient apiSincronizacaoClient, IMapper mapeamento, ILogger<ProcessarDadosImpl> logger)
         {
             _produtoRepository = produtoRepository;
             _apiSincronizacaoClient = apiSincronizacaoClient;

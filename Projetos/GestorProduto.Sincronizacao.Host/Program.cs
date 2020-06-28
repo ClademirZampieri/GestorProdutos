@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Hosting;
-using NDD.MicroServico.Base.Hosting;
+using GestorProdutos.Base.Hosting;
 using System;
 
 namespace GestorProdutos.Sincronizacao.Host

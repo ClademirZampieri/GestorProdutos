@@ -7,7 +7,7 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NDD.MicroServico.Base.Schedulador.Quartz
+namespace GestorProdutos.Base.Schedulador.Quartz
 {
     internal class ScheduladorProcessosImpl : IScheduladorProcessos<IScheduler>
     {

@@ -5,9 +5,9 @@ namespace GestorProdutos.Catalogo.Domain
 {
     public class EstoqueService : IEstoqueService
     {
-        private readonly IProdutoRepository _produtoRepository;
+        private readonly IProdutoFrontRepository _produtoRepository;
 
-        public EstoqueService(IProdutoRepository produtoRepository)
+        public EstoqueService(IProdutoFrontRepository produtoRepository)
         {
             _produtoRepository = produtoRepository;
         }

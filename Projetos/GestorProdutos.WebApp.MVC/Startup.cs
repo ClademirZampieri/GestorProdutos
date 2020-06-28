@@ -1,20 +1,20 @@
 ﻿using AutoMapper;
+using GestorProdutos.Front.Produtos.Data.Extensions;
+using GestorProdutos.Infra.Configuracoes;
+using GestorProdutos.Negocio.AutoMapper;
+using GestorProdutos.WebApp.MVC.Data;
+using GestorProdutos.WebApp.MVC.Setup;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using GestorProdutos.WebApp.MVC.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using GestorProdutos.Catalogo.Data;
-using GestorProdutos.WebApp.MVC.Setup;
-using GestorProdutos.Negocio.AutoMapper;
 using NDD.GestorProdutos.Migracoes;
-using GestorProdutos.Infra.Configuracoes;
 
 namespace GestorProdutos.API
 {
@@ -43,7 +43,7 @@ namespace GestorProdutos.API
 
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(_configuracoes.AppSettings.ConnectionString));
 
-            services.AddDbContext<CatalogoContext>(options => options.UseSqlServer(_configuracoes.AppSettings.ConnectionString));
+            services.AddDbContext<ProdutosFrontContext>(options => options.UseSqlServer(_configuracoes.AppSettings.ConnectionString));
 
             services.AddDefaultIdentity<IdentityUser>().AddDefaultUI(UIFramework.Bootstrap4).AddEntityFrameworkStores<ApplicationDbContext>();
 

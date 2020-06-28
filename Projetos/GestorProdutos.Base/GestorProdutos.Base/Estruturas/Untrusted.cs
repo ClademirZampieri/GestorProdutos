@@ -1,4 +1,4 @@
-namespace NDD.CentralSolucoes.Base.Estruturas
+namespace GestorProdutos.Base.Estruturas
 {
     using System;
 

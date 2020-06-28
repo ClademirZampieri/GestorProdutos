@@ -10,7 +10,7 @@ namespace GestorProdutos.Application.Jobs
     {
         private readonly IProcessarDados _processarDados;
 
-        public SincronizacaoProdutosJobImpl(IProdutoAppService servico, IProcessarDados processarDados)
+        public SincronizacaoProdutosJobImpl(IProcessarDados processarDados)
         {
             _processarDados = processarDados;
         }

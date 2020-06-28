@@ -1,5 +1,5 @@
 ﻿using GestorProdutos.Base.Exceptions;
-using NDD.CentralSolucoes.Base.Estruturas;
+using GestorProdutos.Base.Estruturas;
 using NDD.Gerenciamento.Geral.Clients.DTO;
 using Newtonsoft.Json;
 using System;

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NDD.MicroServico.Base.Hosting
+namespace GestorProdutos.Base.Hosting
 {
     public interface IPlataformaHostLifetime
     {

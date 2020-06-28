@@ -1,6 +1,6 @@
 ﻿using GestorProdutos.Infra.Configuracoes;
 using Microsoft.Extensions.Options;
-using NDD.CentralSolucoes.Base.Estruturas;
+using GestorProdutos.Base.Estruturas;
 using NDD.Gerenciamento.Geral.Clients.Http;
 using System;
 using System.Net.Http;

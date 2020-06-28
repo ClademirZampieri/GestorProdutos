@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace NDD.MicroServico.Base.Hosting
+namespace GestorProdutos.Base.Hosting
 {
     public sealed class HostDeAplicacao: IDisposable
     {

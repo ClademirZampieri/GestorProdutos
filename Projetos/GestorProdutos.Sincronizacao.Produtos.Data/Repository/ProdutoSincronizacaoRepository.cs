@@ -6,15 +6,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GestorProdutos.Catalogo.Domain.Enums;
-using GestorProdutos.Front.Produtos.Data.Extensions;
+using GestorProdutos.Sincronizacao.Produtos.Data.Extensions;
 
-namespace GestorProdutos.Front.Produtos.Data.Repository
+namespace GestorProdutos.Sincronizacao.Produtos.Data.Repository
 {
-    public class ProdutoFrontRepository : IProdutoFrontRepository
+    public class ProdutoSincronizacaoRepository : IProdutoSincronizacaoRepository
     {
-        private readonly ProdutosFrontContext _context;
+        private readonly ProdutosSincronizacaoContext _context;
 
-        public ProdutoFrontRepository(ProdutosFrontContext context)
+        public ProdutoSincronizacaoRepository(ProdutosSincronizacaoContext context)
         {
             _context = context;
         }
@@ -52,13 +52,6 @@ namespace GestorProdutos.Front.Produtos.Data.Repository
 
         public void Atualizar(Produto produto)
         {
-            var statusAtual = ObterStatusProduto(produto.Id).Result;
-
-            if(statusAtual != StatusSincronizacaoEnum.PendenteDeCriacao)
-            {
-                produto.StatusSincronizacao = StatusSincronizacaoEnum.PendenteDeAtualizacao;
-            }
-
             _context.DetachLocal(produto, produto.Id);
             _context.Produtos.Update(produto);
         }

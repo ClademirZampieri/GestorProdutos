@@ -1,12 +1,18 @@
 using FluentValidation.AspNetCore;
 using GestorProdutos.Base.Enums;
+using GestorProdutos.Core.DomainObjects;
+using GestorProdutos.Front.Produtos.Data.Extensions;
+using GestorProdutos.Infra.Configuracoes;
 using GestorProdutos.Sincronizacao.API.Extensions;
-using Microsoft.AspNet.OData.Extensions;
+using GestorProdutos.Sincronizacao.API.Filters;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using NDD.GestorProdutos.Migracoes;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using SimpleInjector;
@@ -16,24 +22,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using GestorProdutos.Core.DomainObjects;
-using GestorProdutos.Sincronizacao.API.Filters;
-using NDD.GestorProdutos.Migracoes;
-using GestorProdutos.Sincronizacao.API;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc;
-using MediatR;
-using GestorProdutos.Catalogo.Data;
-using GestorProdutos.Infra.Configuracoes;
 
 namespace GestorProdutos.Sincronizacao.API
 {
     public class Startup
     {
-        private static readonly string SecaoRecursosHabilitaveis = "HabilitarRecurso";
-        private static readonly string VariavelAmbienteAmbienteProducao = "GestorProdutos_AMBIENTE_PRODUCAO";
+        private static readonly string VariavelAmbienteAmbienteProducao = "GESTOR_AMBIENTE_PRODUCAO";
         public static readonly Container Container = new Container();
 
         private readonly GestorProdutosConfiguracoes _configuracoes;
@@ -107,7 +101,7 @@ namespace GestorProdutos.Sincronizacao.API
 
             services.Configure<GestorProdutosConfiguracoes>(Configuration);
 
-            services.AddDbContext<CatalogoContext>(options => options.UseSqlServer(_configuracoes.AppSettings.ConnectionString));
+            services.AddDbContext<ProdutosFrontContext>(options => options.UseSqlServer(_configuracoes.AppSettings.ConnectionString));
 
             services.AddMediatR(typeof(Startup));
 
@@ -141,10 +135,10 @@ namespace GestorProdutos.Sincronizacao.API
             Container.AutoCrossWireAspNetComponents(app);
 
             // Captura o valor da variavel de ambiente(GestorProdutos_AMBIENTE_PRODUCAO)
-            string CentralDeSolucoesAmbienteDeProducao = Environment.GetEnvironmentVariable(VariavelAmbienteAmbienteProducao);
+            string prod = Environment.GetEnvironmentVariable(VariavelAmbienteAmbienteProducao);
 
             // Verifica se o ambiente não é de Produção
-            if (Convert.ToBoolean(CentralDeSolucoesAmbienteDeProducao) == false)
+            if (Convert.ToBoolean(prod) == false)
             {
                 // Habilita o Middleware do Swagger.
                 app.UseSwagger();

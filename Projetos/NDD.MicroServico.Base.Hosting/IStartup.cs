@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace NDD.MicroServico.Base.Hosting
+namespace GestorProdutos.Base.Hosting
 {
     public interface IStartup
     {

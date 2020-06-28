@@ -2,7 +2,7 @@
 using GestorProdutos.Base.Respostas;
 using GestorProdutos.Catalogo.Domain;
 using MediatR;
-using NDD.CentralSolucoes.Base.Estruturas;
+using GestorProdutos.Base.Estruturas;
 using System;
 
 namespace GestorProdutos.Application.Features.Catalogo.AtualizarProduto

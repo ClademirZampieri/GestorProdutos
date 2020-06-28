@@ -17,8 +17,7 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\GestorProdutos.Catalogo.Data\GestorProdutos.Catalogo.Data.csproj" />
-    <ProjectReference Include="..\GestorProdutos.Catalogo.Data\GestorProdutos.Catalogo.Data.csproj" />
+    <ProjectReference Include="..\GestorProdutos.Catalogo.Data\GestorProdutos.Front.Produtos.Data.csproj" />
     <ProjectReference Include="..\GestorProdutos.Catalogo.Domain\GestorProdutos.Catalogo.Domain.csproj" />
     <ProjectReference Include="..\GestorProdutos.Core\GestorProdutos.Core.csproj" />
     <ProjectReference Include="..\GestorProdutos.Migracoes\GestorProdutos.Migracoes.csproj" />

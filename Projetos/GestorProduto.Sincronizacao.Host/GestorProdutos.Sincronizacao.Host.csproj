@@ -24,11 +24,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GestorProdutos.Application\GestorProdutos.Application.csproj" />
-    <ProjectReference Include="..\GestorProdutos.Catalogo.Data\GestorProdutos.Catalogo.Data.csproj" />
     <ProjectReference Include="..\GestorProdutos.Infra\GestorProdutos.Infra.csproj" />
     <ProjectReference Include="..\GestorProdutos.Migracoes\GestorProdutos.Migracoes.csproj" />
-    <ProjectReference Include="..\NDD.MicroServico.Base.Hosting\NDD.MicroServico.Base.Hosting.csproj" />
-    <ProjectReference Include="..\NDD.MicroServico.Base.Schedulador.Quartz\NDD.MicroServico.Base.Schedulador.Quartz.csproj" />
+    <ProjectReference Include="..\GestorProdutos.Sincronizacao.Produtos.Data\GestorProdutos.Sincronizacao.Produtos.Data.csproj" />
+    <ProjectReference Include="..\NDD.MicroServico.Base.Hosting\GestorProdutos.Base.Hosting.csproj" />
+    <ProjectReference Include="..\NDD.MicroServico.Base.Schedulador.Quartz\GestorProdutos.Base.Schedulador.Quartz.csproj" />
   </ItemGroup>
 
 </Project>

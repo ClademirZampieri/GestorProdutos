@@ -6,17 +6,17 @@ using GestorProdutos.Base.Respostas;
 using GestorProdutos.Catalogo.Domain;
 using GestorProdutos.Core.DomainObjects;
 using GestorProdutos.Negocio.ViewModels;
-using NDD.CentralSolucoes.Base.Estruturas;
+using GestorProdutos.Base.Estruturas;
 
 namespace GestorProdutos.Negocio.Services
 {
     public class ProdutoAppService : IProdutoAppService
     {
-        private readonly IProdutoRepository _produtoRepository;
+        private readonly IProdutoFrontRepository _produtoRepository;
         private readonly IEstoqueService _estoqueService;
         private readonly IMapper _mapper;
 
-        public ProdutoAppService(IProdutoRepository produtoRepository,
+        public ProdutoAppService(IProdutoFrontRepository produtoRepository,
                                  IMapper mapper,
                                  IEstoqueService estoqueService)
         {

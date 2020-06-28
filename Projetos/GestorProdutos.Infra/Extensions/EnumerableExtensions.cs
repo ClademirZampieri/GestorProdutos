@@ -1,4 +1,4 @@
-﻿using NDD.CentralSolucoes.Base.Estruturas;
+﻿using GestorProdutos.Base.Estruturas;
 using System;
 using System.Collections.Generic;
 using System.Linq;

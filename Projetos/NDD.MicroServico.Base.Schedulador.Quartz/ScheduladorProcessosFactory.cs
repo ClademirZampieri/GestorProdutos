@@ -4,7 +4,7 @@ using Quartz.Spi;
 using System;
 using System.Collections.Concurrent;
 
-namespace NDD.MicroServico.Base.Schedulador.Quartz
+namespace GestorProdutos.Base.Schedulador.Quartz
 {
     public class ScheduladorProcessosFactory : IJobFactory
     {

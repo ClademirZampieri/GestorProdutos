@@ -1,7 +1,7 @@
 ﻿using GestorProdutos.Base.Exceptions;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using NDD.CentralSolucoes.Base.Estruturas;
+using GestorProdutos.Base.Estruturas;
 using GestorProdutos.Sincronizacao.API.Base;
 using System;
 using System.Linq;

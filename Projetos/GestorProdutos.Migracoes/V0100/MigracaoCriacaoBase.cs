@@ -1,6 +1,6 @@
 using FluentMigrator;
 using GestorProdutos.Infra.Configuracoes;
-using NDD.CentralSolucoes.Base.Estruturas;
+using GestorProdutos.Base.Estruturas;
 using System;
 
 namespace NDD.GestorProdutos.Migracoes.V0100

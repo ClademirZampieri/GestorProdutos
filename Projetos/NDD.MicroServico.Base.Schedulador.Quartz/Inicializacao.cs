@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Quartz;
 
-namespace NDD.MicroServico.Base.Schedulador.Quartz
+namespace GestorProdutos.Base.Schedulador.Quartz
 {
     public static class Inicializacao
     {

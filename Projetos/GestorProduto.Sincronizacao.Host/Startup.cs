@@ -1,19 +1,18 @@
 using GestorProdutos.Application;
 using GestorProdutos.Application.Schedules;
 using GestorProdutos.Base.Enums;
-using GestorProdutos.Catalogo.Data;
+using GestorProdutos.Base.Hosting;
+using GestorProdutos.Base.Schedulador.Quartz;
 using GestorProdutos.Infra.Configuracoes;
 using GestorProdutos.Sincronizacao.Host.Extensions;
+using GestorProdutos.Sincronizacao.Produtos.Data.Extensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using NDD.GestorProdutos.Migracoes;
-using NDD.MicroServico.Base.Hosting;
-using NDD.MicroServico.Base.Schedulador.Quartz;
 using Quartz;
 using System.Collections.Specialized;
 
@@ -22,10 +21,7 @@ namespace GestorProdutos.Sincronizacao.Host
     public class Startup : IStartup
     {
         public const string EnvironmentTest = "Test";
-
         private readonly GestorProdutosConfiguracoes _configuracoes;
-        private IServiceCollection _services;
-
         private IScheduladorProcessos<IScheduler> _scheduler;
 
         public Startup(IConfiguration configuration, IHostingEnvironment env)
@@ -66,11 +62,10 @@ namespace GestorProdutos.Sincronizacao.Host
 
         public void ConfigurarServicos(IServiceCollection services)
         {
-            _services = services;
             services.Configure<GestorProdutosConfiguracoes>(Configuration);
 
             services.AddScoped(sp => sp.GetService<IOptionsSnapshot<GestorProdutosConfiguracoes>>().Value);
-            services.AddDbContext<CatalogoContext>(options => options.UseSqlServer(_configuracoes.AppSettings.ConnectionString));
+            services.AddDbContext<ProdutosSincronizacaoContext>(options => options.UseSqlServer(_configuracoes.AppSettings.ConnectionString), ServiceLifetime.Transient);
             services.AddMediatR(typeof(Startup));
 
             services.AddAutoMapper();

@@ -1,6 +1,6 @@
 using System;
 
-namespace NDD.CentralSolucoes.Base.Estruturas
+namespace GestorProdutos.Base.Estruturas
 {
     /// <summary>
     ///  Extensão da classe Option para implementar métodos úteis na representação um objeto de retorno que pode ser nulo.

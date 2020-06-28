@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace NDD.MicroServico.Base.Schedulador.Quartz
+namespace GestorProdutos.Base.Schedulador.Quartz
 {
     public interface IScheduladorProcessos<TScheduler>
     {

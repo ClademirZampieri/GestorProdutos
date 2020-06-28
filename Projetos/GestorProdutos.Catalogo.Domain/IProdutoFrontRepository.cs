@@ -5,7 +5,7 @@ using GestorProdutos.Core.Data;
 
 namespace GestorProdutos.Catalogo.Domain
 {
-    public interface IProdutoRepository : IRepository<Produto>
+    public interface IProdutoFrontRepository : IRepository<Produto>
     {
         Task<IEnumerable<Produto>> ObterTodos();
         Task<Produto> ObterPorId(Guid id);

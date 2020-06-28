@@ -6,11 +6,11 @@ using GestorProdutos.Catalogo.Domain;
 using GestorProdutos.Core.Data;
 using GestorProdutos.Core.Messages;
 
-namespace GestorProdutos.Front.Produtos.Data.Extensions
+namespace GestorProdutos.Sincronizacao.Produtos.Data.Extensions
 {
-    public class ProdutosFrontContext : DbContext, IUnitOfWork
+    public class ProdutosSincronizacaoContext : DbContext, IUnitOfWork
     {
-        public ProdutosFrontContext(DbContextOptions<ProdutosFrontContext> options)
+        public ProdutosSincronizacaoContext(DbContextOptions<ProdutosSincronizacaoContext> options)
             : base(options) { }
 
         public DbSet<Produto> Produtos { get; set; }
@@ -23,7 +23,7 @@ namespace GestorProdutos.Front.Produtos.Data.Extensions
 
             modelBuilder.Ignore<Event>();
 
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProdutosFrontContext).Assembly);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProdutosSincronizacaoContext).Assembly);
         }
 
         public async Task<bool> Commit()

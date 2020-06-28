@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using GestorProdutos.Base.Respostas;
 using MediatR;
-using NDD.CentralSolucoes.Base.Estruturas;
+using GestorProdutos.Base.Estruturas;
 using System;
 
 namespace GestorProdutos.Application.Features.Catalogo.CriarProduto

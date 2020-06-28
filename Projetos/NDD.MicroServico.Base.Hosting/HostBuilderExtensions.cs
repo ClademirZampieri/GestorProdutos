@@ -1,4 +1,4 @@
-﻿namespace NDD.MicroServico.Base.Hosting
+﻿namespace GestorProdutos.Base.Hosting
 {
     public static class HostBuilderExtensions
     {

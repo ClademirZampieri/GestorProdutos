@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 using MediatR;
-using NDD.CentralSolucoes.Base.Estruturas;
+using GestorProdutos.Base.Estruturas;
 using System;
 using System.Linq;
 using System.Threading;

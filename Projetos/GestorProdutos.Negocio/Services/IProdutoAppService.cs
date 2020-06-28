@@ -1,6 +1,6 @@
 ﻿using GestorProdutos.Base.Respostas;
 using GestorProdutos.Negocio.ViewModels;
-using NDD.CentralSolucoes.Base.Estruturas;
+using GestorProdutos.Base.Estruturas;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
