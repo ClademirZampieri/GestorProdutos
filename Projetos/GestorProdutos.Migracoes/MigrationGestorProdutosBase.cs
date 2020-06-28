@@ -1,5 +1,5 @@
 using FluentMigrator;
-using GestorProdutos.Catalogo.Domain.Configuracoes;
+using GestorProdutos.Infra.Configuracoes;
 
 namespace NDD.GestorProdutos.Migracoes
 {

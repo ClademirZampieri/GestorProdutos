@@ -1,6 +1,5 @@
 using FluentValidation.AspNetCore;
 using GestorProdutos.Base.Enums;
-using GestorProdutos.Catalogo.Domain.Configuracoes;
 using GestorProdutos.Sincronizacao.API.Extensions;
 using Microsoft.AspNet.OData.Extensions;
 using Microsoft.AspNetCore.Builder;
@@ -27,6 +26,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using MediatR;
 using GestorProdutos.Catalogo.Data;
+using GestorProdutos.Infra.Configuracoes;
 
 namespace GestorProdutos.Sincronizacao.API
 {
@@ -42,8 +42,6 @@ namespace GestorProdutos.Sincronizacao.API
 
         public IHostingEnvironment HostingEnvironment { get; }
 
-        private readonly string _caminhoArquivoLog;
-
         public Startup(IConfiguration configuration, IHostingEnvironment env)
         {
             Configuration = configuration;
@@ -52,19 +50,14 @@ namespace GestorProdutos.Sincronizacao.API
             _configuracoes = new GestorProdutosConfiguracoes();
             configuration.Bind(_configuracoes);
 
-            _caminhoArquivoLog = configuration["CaminhoArquivoLog"];
-
             Container.Options.AllowOverridingRegistrations = true;
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper();
-
             services.AddCors();
             services.AddSimpleInjector(Container);
-
-            InicializarRecursosHabilitaveis(services);
             services.AddDependencies(Container, Configuration, HostingEnvironment);
             services.AddMediator(Container);
             services.AddValidators(Container);
@@ -114,15 +107,7 @@ namespace GestorProdutos.Sincronizacao.API
 
             services.Configure<GestorProdutosConfiguracoes>(Configuration);
 
-    //        services.AddDbContext<ApplicationDbContext>(options =>
-    //options.UseSqlServer(_configuracoes.AppSettings.ConnectionString));
-
-            services.AddDbContext<CatalogoContext>(options =>
-                options.UseSqlServer(_configuracoes.AppSettings.ConnectionString));
-
-            //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
-            //services.AddAutoMapper(typeof(DomainToViewModelMappingProfile), typeof(ViewModelToDomainMappingProfile));
+            services.AddDbContext<CatalogoContext>(options => options.UseSqlServer(_configuracoes.AppSettings.ConnectionString));
 
             services.AddMediatR(typeof(Startup));
 
@@ -134,20 +119,6 @@ namespace GestorProdutos.Sincronizacao.API
             services.AddTransient<GestorProdutosConfiguracoes>(c => _configuracoes);
 
             services.AdicionarMigracoes(_configuracoes.AppSettings.ConnectionString, DbProviderEnum.SqlServer);
-        }
-
-        private void InicializarRecursosHabilitaveis(IServiceCollection services)
-        {
-            //var secaoRecursosHabilitaveis = Configuration.GetSection(SecaoRecursosHabilitaveis);
-            //var recursos = secaoRecursosHabilitaveis
-            //    .AsEnumerable()
-            //    .Select(item =>
-            //        new KeyValuePair<string, bool>
-            //        (
-            //            item.Key,
-            //            string.IsNullOrEmpty(item.Value) ? false : bool.Parse(item.Value)
-            //        ));
-            //services.AdicionarServicosDeHabilitarRecurso(recursos);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

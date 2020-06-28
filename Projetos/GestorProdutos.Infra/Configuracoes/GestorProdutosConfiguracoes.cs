@@ -1,9 +1,11 @@
 ﻿using GestorProdutos.Infra.Settings.Entities;
 
-namespace GestorProdutos.Catalogo.Domain.Configuracoes
+namespace GestorProdutos.Infra.Configuracoes
 {
     public class GestorProdutosConfiguracoes
     {
         public AppSettings AppSettings { get; set; }
+
+        public ParametorsDeSincronizacao ParametorsDeSincronizacao { get; set; }
     }
 }

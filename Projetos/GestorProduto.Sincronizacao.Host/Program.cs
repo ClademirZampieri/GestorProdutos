@@ -1,12 +1,22 @@
-﻿sing System;
+﻿using Microsoft.Extensions.Hosting;
+using NDD.MicroServico.Base.Hosting;
+using System;
 
 namespace GestorProdutos.Sincronizacao.Host
 {
     class Program
     {
-        static void Main(string[] args)
+        private static async System.Threading.Tasks.Task Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string jsonFile = "appsettings.json";
+
+            await new HostDeAplicacao()
+                .UseStartup<Startup>()
+                .UseJsonFile(jsonFile)
+                .RunAsync(args, hostBuilder =>
+                    hostBuilder
+                        .UseConsoleLifetime()
+                        .UseEnvironment(EnvironmentName.Development));
         }
     }
 }

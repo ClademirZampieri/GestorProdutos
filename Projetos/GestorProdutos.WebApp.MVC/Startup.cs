@@ -14,7 +14,7 @@ using GestorProdutos.Catalogo.Data;
 using GestorProdutos.WebApp.MVC.Setup;
 using GestorProdutos.Negocio.AutoMapper;
 using NDD.GestorProdutos.Migracoes;
-using GestorProdutos.Catalogo.Domain.Configuracoes;
+using GestorProdutos.Infra.Configuracoes;
 
 namespace GestorProdutos.API
 {
@@ -34,8 +34,6 @@ namespace GestorProdutos.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //var connectionString = Configuration.GetConnectionString("DefaultConnection");
-
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -43,15 +41,11 @@ namespace GestorProdutos.API
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(_configuracoes.AppSettings.ConnectionString));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(_configuracoes.AppSettings.ConnectionString));
 
-            services.AddDbContext<CatalogoContext>(options =>
-                options.UseSqlServer(_configuracoes.AppSettings.ConnectionString));
+            services.AddDbContext<CatalogoContext>(options => options.UseSqlServer(_configuracoes.AppSettings.ConnectionString));
 
-            services.AddDefaultIdentity<IdentityUser>()
-                .AddDefaultUI(UIFramework.Bootstrap4)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddDefaultIdentity<IdentityUser>().AddDefaultUI(UIFramework.Bootstrap4).AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
@@ -63,8 +57,8 @@ namespace GestorProdutos.API
 
             services.RegisterServices();
 
-            services.AddTransient<GestorProdutosConfiguracoes>(c => new GestorProdutosConfiguracoes());
-            services.AddTransient<GestorProdutosConfiguracoes>(c => _configuracoes);
+            //services.AddTransient(c => new GestorProdutosConfiguracoes());
+            services.AddTransient(c => _configuracoes);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -85,9 +79,7 @@ namespace GestorProdutos.API
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-
             app.UseAuthentication();
-
             app.InicializarMigracoes();
 
             app.UseMvc(routes =>
