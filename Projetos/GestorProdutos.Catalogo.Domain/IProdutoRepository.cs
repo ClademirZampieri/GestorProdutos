@@ -9,6 +9,8 @@ namespace GestorProdutos.Catalogo.Domain
     {
         Task<IEnumerable<Produto>> ObterTodos();
         Task<Produto> ObterPorId(Guid id);
+        Task<IEnumerable<Produto>> ObterProdutosNaoSincronizados();
+
 
         void Adicionar(Produto produto);
         void Atualizar(Produto produto);

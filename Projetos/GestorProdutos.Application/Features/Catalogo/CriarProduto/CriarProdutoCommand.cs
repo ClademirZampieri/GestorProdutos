@@ -1,11 +1,12 @@
 ﻿using FluentValidation;
+using GestorProdutos.Base.Respostas;
 using MediatR;
 using NDD.CentralSolucoes.Base.Estruturas;
 using System;
 
 namespace GestorProdutos.Application.Features.Catalogo.CriarProduto
 {
-    public class CriarProdutoCommand : IRequest<Result<Exception, bool>>
+    public class CriarProdutoCommand : IRequest<Result<Exception, RespostaDeRequisicao>>
     {
         public string Nome { get; set; }
         public bool Ativo { get; set; }

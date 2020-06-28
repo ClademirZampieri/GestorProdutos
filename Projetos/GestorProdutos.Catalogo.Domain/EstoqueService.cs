@@ -9,13 +9,10 @@ namespace GestorProdutos.Catalogo.Domain
     public class EstoqueService : IEstoqueService
     {
         private readonly IProdutoRepository _produtoRepository;
-        private readonly IMediatorHandler _mediatorHandler;
 
-        public EstoqueService(IProdutoRepository produtoRepository,
-                              IMediatorHandler mediatorHandler)
+        public EstoqueService(IProdutoRepository produtoRepository)
         {
             _produtoRepository = produtoRepository;
-            _mediatorHandler = mediatorHandler;
         }
 
         public async Task<bool> DebitarEstoque(Guid produtoId, int quantidade)
@@ -31,19 +28,7 @@ namespace GestorProdutos.Catalogo.Domain
 
             if (produto == null) return false;
 
-            if (!produto.PossuiEstoque(quantidade))
-            {
-                await _mediatorHandler.PublicarNotificacao(new DomainNotification("Estoque", $"Produto - {produto.Nome} sem estoque"));
-                return false;
-            }
-
             produto.DebitarEstoque(quantidade);
-
-            // TODO: 10 pode ser parametrizavel em arquivo de configuração
-            if (produto.QuantidadeEstoque < 10)
-            {
-                await _mediatorHandler.PublicarDomainEvent(new ProdutoAbaixoEstoqueEvent(produto.Id, produto.QuantidadeEstoque));
-            }
 
             _produtoRepository.Atualizar(produto);
             return true;

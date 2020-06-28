@@ -6,14 +6,11 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="8.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\GestorProdutos.Catalogo.Domain\GestorProdutos.Catalogo.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="RNA\" />
   </ItemGroup>
 
 </Project>

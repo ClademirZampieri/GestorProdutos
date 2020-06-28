@@ -18,6 +18,10 @@ namespace GestorProdutos.Catalogo.Data.Mappings
                 .IsRequired()
                 .HasColumnType("varchar(250)");
 
+            builder.Property(c => c.StatusSincronizacao)
+                .IsRequired()
+                .HasColumnType("int16");
+
             builder.ToTable("Produtos");
         }
     }

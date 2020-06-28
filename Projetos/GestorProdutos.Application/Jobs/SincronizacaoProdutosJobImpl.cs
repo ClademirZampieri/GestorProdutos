@@ -1,20 +1,21 @@
-﻿using Quartz;
+﻿using GestorProdutos.Negocio.Services;
+using Quartz;
 using System.Threading.Tasks;
 
 namespace GestorProdutos.Application.Jobs
 {
     public class SincronizacaoProdutosJobImpl : ISincronizacaoProdutosJob
     {
-        private readonly IProcessarRenovacaoAutomaticaLicenca _processador;
+        private readonly IProdutoAppService _servico;
 
-        public SincronizacaoProdutosJobImpl(IProcessarRenovacaoAutomaticaLicenca processador)
+        public SincronizacaoProdutosJobImpl(IProdutoAppService servico)
         {
-            _processador = processador;
+            _servico = servico;
         }
 
         public Task Execute(IJobExecutionContext context)
         {
-            _processador.Processar();
+            // _processador.Processar();
 
             return Task.CompletedTask;
         }

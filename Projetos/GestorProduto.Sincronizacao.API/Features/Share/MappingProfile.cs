@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using GestorProdutos.Base.Respostas;
 
 namespace GestorProdutos.Sincronizacao.API.Features.Share
 {
@@ -6,8 +7,7 @@ namespace GestorProdutos.Sincronizacao.API.Features.Share
     {
         public MappingProfile()
         {
-            //CreateMap<CriarProdutoResposta, CriarProdutoRespostaViewModel>();
-            //CreateMap<AtualizarProdutoResposta, AtualizarProdutoRespostaViewModel>();
+            CreateMap<RespostaDeRequisicao, RespostaDeRequisicaoViewModel>();
         }
     }
 }

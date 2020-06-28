@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GestorProdutos.Catalogo.Data.Extensions;
+using GestorProdutos.Catalogo.Domain.Enums;
 
 namespace GestorProdutos.Catalogo.Data.Repository
 {
@@ -26,6 +27,13 @@ namespace GestorProdutos.Catalogo.Data.Repository
             return retorno;
         }
 
+        public async Task<IEnumerable<Produto>> ObterProdutosNaoSincronizados()
+        {
+            var query = _context.Produtos.Where(x => x.StatusSincronizacao != StatusSincronizacaoEnum.Sincronizacado);
+
+            return await query.AsNoTracking().ToListAsync();
+        }
+
         public async Task<Produto> ObterPorId(Guid id)
         {
             //return await _context.Produtos.AsNoTracking().FirstOrDefaultAsync(p => p.Id == id);
@@ -34,11 +42,13 @@ namespace GestorProdutos.Catalogo.Data.Repository
 
         public void Adicionar(Produto produto)
         {
+            produto.StatusSincronizacao = StatusSincronizacaoEnum.PendenteDeCriacao;
             _context.Produtos.Add(produto);
         }
 
         public void Atualizar(Produto produto)
         {
+            produto.StatusSincronizacao = StatusSincronizacaoEnum.PendenteDeAtualizacao;
             _context.DetachLocal(produto, produto.Id);
             _context.Produtos.Update(produto);
         }

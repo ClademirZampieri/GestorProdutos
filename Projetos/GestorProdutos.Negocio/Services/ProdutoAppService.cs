@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
+using GestorProdutos.Base.Respostas;
 using GestorProdutos.Catalogo.Domain;
 using GestorProdutos.Core.DomainObjects;
 using GestorProdutos.Negocio.ViewModels;
+using NDD.CentralSolucoes.Base.Estruturas;
 
 namespace GestorProdutos.Negocio.Services
 {
@@ -14,8 +16,8 @@ namespace GestorProdutos.Negocio.Services
         private readonly IEstoqueService _estoqueService;
         private readonly IMapper _mapper;
 
-        public ProdutoAppService(IProdutoRepository produtoRepository, 
-                                 IMapper mapper, 
+        public ProdutoAppService(IProdutoRepository produtoRepository,
+                                 IMapper mapper,
                                  IEstoqueService estoqueService)
         {
             _produtoRepository = produtoRepository;
@@ -33,20 +35,39 @@ namespace GestorProdutos.Negocio.Services
             return _mapper.Map<IEnumerable<ProdutoViewModel>>(await _produtoRepository.ObterTodos());
         }
 
-        public async Task AdicionarProduto(ProdutoViewModel produtoViewModel)
+        public async Task<Result<Exception, RespostaDeRequisicao>> AdicionarProduto(ProdutoViewModel produtoViewModel)
         {
-            var produto = _mapper.Map<Produto>(produtoViewModel);
-            _produtoRepository.Adicionar(produto);
+            try
+            {
+                var produto = _mapper.Map<Produto>(produtoViewModel);
 
-            await _produtoRepository.UnitOfWork.Commit();
+                _produtoRepository.Adicionar(produto);
+
+                await _produtoRepository.UnitOfWork.Commit();
+
+                return CriarRespostaDeSucesso();
+            }
+            catch (Exception ex)
+            {
+                return CriarRespostaDeErro(ex);
+            }
         }
 
-        public async Task AtualizarProduto(ProdutoViewModel produtoViewModel)
+        public async Task<Result<Exception, RespostaDeRequisicao>> AtualizarProduto(ProdutoViewModel produtoViewModel)
         {
-            var produto = _mapper.Map<Produto>(produtoViewModel);
-            _produtoRepository.Atualizar(produto);
+            try
+            {
+                var produto = _mapper.Map<Produto>(produtoViewModel);
+                _produtoRepository.Atualizar(produto);
 
-            await _produtoRepository.UnitOfWork.Commit();
+                await _produtoRepository.UnitOfWork.Commit();
+
+                return CriarRespostaDeSucesso();
+            }
+            catch (Exception ex)
+            {
+                return CriarRespostaDeErro(ex);
+            }
         }
 
         public async Task<ProdutoViewModel> DebitarEstoque(Guid id, int quantidade)
@@ -73,6 +94,28 @@ namespace GestorProdutos.Negocio.Services
         {
             _produtoRepository?.Dispose();
             _estoqueService?.Dispose();
+        }
+
+        private RespostaDeRequisicao CriarRespostaDeErro(Exception ex)
+        {
+            return new RespostaDeRequisicao()
+            {
+                Codigo = 1,
+                Mensagem = "Erro ao adicionar o produto",
+                Descricao = $"{ex.Message} - {ex.StackTrace}",
+                TipoResposta = TipoResposta.Informacao
+            };
+        }
+
+        private RespostaDeRequisicao CriarRespostaDeSucesso()
+        {
+            return new RespostaDeRequisicao()
+            {
+                Codigo = 1,
+                Mensagem = "Sucesso",
+                Descricao = "Operação realizada com sucesso",
+                TipoResposta = TipoResposta.Informacao
+            };
         }
     }
 }

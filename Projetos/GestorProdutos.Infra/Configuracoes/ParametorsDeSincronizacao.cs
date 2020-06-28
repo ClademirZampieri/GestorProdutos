@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GestorProdutos.Infra.Configuracoes
 {
-    public class ParametorsDeSincronizacao
+    public class ParametrosDeSincronizacao
     {
         public string UrlWebAPI { get; set; }
 

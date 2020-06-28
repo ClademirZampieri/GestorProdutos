@@ -6,6 +6,6 @@ namespace GestorProdutos.Infra.Configuracoes
     {
         public AppSettings AppSettings { get; set; }
 
-        public ParametorsDeSincronizacao ParametorsDeSincronizacao { get; set; }
+        public ParametrosDeSincronizacao ParametrosDeSincronizacao { get; set; }
     }
 }

@@ -89,11 +89,11 @@ namespace NDD.GestorProdutos.Migracoes.V0100
                 .NotNullable()
                 .WithColumnDescription("Nome da licença")
 
-                .WithColumn("Sincronizado")
-                .AsBoolean()
+                .WithColumn("StatusSincronizacao")
+                .AsInt16()
                 .NotNullable()
-                .WithDefaultValue(false)
-                .WithColumnDescription("Nome da licença");
+                .WithDefaultValue(2)
+                .WithColumnDescription("Status da sincronização, podendo ser: 1 - sincronizado, 2 - criação pendente de sincronização, 3 - atualização pendente de sincronização");
 
             return migration;
         }

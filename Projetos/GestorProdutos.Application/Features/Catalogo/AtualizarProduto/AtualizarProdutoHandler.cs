@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using GestorProdutos.Base.Respostas;
 using GestorProdutos.Negocio.Services;
 using GestorProdutos.Negocio.ViewModels;
 using MediatR;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace GestorProdutos.Application.Features.Catalogo.AtualizarProduto
 {
-    public class AtualizarProdutoHandler : IRequestHandler<AtualizarProdutoCommand, Result<Exception, bool>>
+    public class AtualizarProdutoHandler : IRequestHandler<AtualizarProdutoCommand, Result<Exception, RespostaDeRequisicao>>
     {
         private readonly IProdutoAppService _produtoService;
         private readonly IMapper _mapeamento;
@@ -20,13 +21,11 @@ namespace GestorProdutos.Application.Features.Catalogo.AtualizarProduto
             _mapeamento = mapeamento;
         }
 
-        public async Task<Result<Exception, bool>> Handle(AtualizarProdutoCommand command, CancellationToken cancellationToken)
+        public async Task<Result<Exception, RespostaDeRequisicao>> Handle(AtualizarProdutoCommand command, CancellationToken cancellationToken)
         {
             var produto = _mapeamento.Map<AtualizarProdutoCommand, ProdutoViewModel>(command);
 
-            await _produtoService.AtualizarProduto(produto);
-
-            return true;
+            return await _produtoService.AtualizarProduto(produto);
         }
     }
 }

@@ -25,7 +25,7 @@ namespace GestorProdutos.Application.Schedules
                 .WithIdentity(TriggerId)
                 .StartNow()
                 .WithSimpleSchedule(x => x
-                    .WithIntervalInSeconds(_configuracoes.ParametorsDeSincronizacao.IntervaloExecuacaoEmSegundos)
+                    .WithIntervalInSeconds(_configuracoes.ParametrosDeSincronizacao.IntervaloExecuacaoEmSegundos)
                     .RepeatForever())
                 .Build();
 

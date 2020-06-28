@@ -1,4 +1,5 @@
 ﻿using System;
+using GestorProdutos.Catalogo.Domain.Enums;
 using GestorProdutos.Core.DomainObjects;
 
 namespace GestorProdutos.Catalogo.Domain
@@ -11,6 +12,7 @@ namespace GestorProdutos.Catalogo.Domain
         public DateTime DataCadastro { get; private set; }
         public string Imagem { get; private set; }
         public int QuantidadeEstoque { get; private set; }
+        public StatusSincronizacaoEnum StatusSincronizacao { get; set; }
 
         protected Produto() { }
         public Produto(string nome, bool ativo, decimal valor, DateTime dataCadastro, string imagem)
