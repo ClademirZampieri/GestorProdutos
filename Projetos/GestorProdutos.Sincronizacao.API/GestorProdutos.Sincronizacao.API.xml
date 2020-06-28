@@ -137,16 +137,6 @@
             Atualiza os dados de um determinado produto na base de dados
             </summary>
         </member>
-        <member name="T:GestorProdutos.Sincronizacao.API.Features.Share.ListaDeRespostasDeRequisicaoViewModel">
-            <summary>
-            Resposta padrao a uma requisicao realizada a Api de servicos
-            </summary>
-        </member>
-        <member name="P:GestorProdutos.Sincronizacao.API.Features.Share.ListaDeRespostasDeRequisicaoViewModel.Respostas">
-            <summary>
-            Colecao de respostas dadas pelos adaptadores
-            </summary>
-        </member>
         <member name="T:GestorProdutos.Sincronizacao.API.Features.Share.RespostaDeRequisicaoViewModel">
             <summary>
             Resposta padrão do adaptador no produto
