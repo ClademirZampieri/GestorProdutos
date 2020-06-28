@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace GestorProduto.Sincronizacao.API.Features.Share
+namespace GestorProdutos.Sincronizacao.API.Features.Share
 {
     /// <summary>
     /// Resposta padrao a uma requisicao realizada a Api de servicos

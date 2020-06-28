@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
 using System.IO;
 
-namespace GestorProduto.Sincronizacao.API.Base
+namespace GestorProdutos.Sincronizacao.API.Base
 {
     /// <summary>
     /// Controlador de i18n (internationalization)

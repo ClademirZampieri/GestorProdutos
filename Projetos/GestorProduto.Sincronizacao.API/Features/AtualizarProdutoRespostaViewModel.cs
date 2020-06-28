@@ -1,7 +1,7 @@
-﻿using GestorProduto.Sincronizacao.API.Features.Share;
+﻿using GestorProdutos.Sincronizacao.API.Features.Share;
 using System;
 
-namespace GestorProduto.Sincronizacao.API.Features
+namespace GestorProdutos.Sincronizacao.API.Features
 {
     public class AtualizarProdutoRespostaViewModel
     {

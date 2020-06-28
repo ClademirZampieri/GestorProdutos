@@ -1,9 +1,9 @@
-﻿using GestorProduto.Sincronizacao.API.Exceptions;
+﻿using GestorProdutos.Sincronizacao.API.Exceptions;
 using GestorProdutos.Base.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace GestorProduto.Sincronizacao.API.Filters
+namespace GestorProdutos.Sincronizacao.API.Filters
 {
     public class ExceptionHandlerAttribute : ExceptionFilterAttribute
     {

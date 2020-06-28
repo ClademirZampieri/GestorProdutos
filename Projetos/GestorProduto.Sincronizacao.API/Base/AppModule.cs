@@ -1,4 +1,4 @@
-﻿namespace GestorProduto.Sincronizacao.API.Base
+﻿namespace GestorProdutos.Sincronizacao.API.Base
 {
     public class AppModule
     {

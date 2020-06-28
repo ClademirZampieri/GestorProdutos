@@ -5,6 +5,10 @@
     <UserSecretsId>d5f6106a-079c-41d8-9d35-6dde8f3e54a4</UserSecretsId>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\Projetos\GITCLADEMIR\GestorProdutos\Projetos\GestorProdutos.Sincronizacao.API\GestorProdutos.Sincronizacao.API.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="8.1.0" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="8.1.3" />
@@ -13,10 +17,10 @@
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.OData" Version="7.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.5" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.5" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.5" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.2.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="2.2.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.6" />
     <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="3.1.5" />
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.1.5" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.5" />
@@ -33,8 +37,15 @@
   <ItemGroup>
     <ProjectReference Include="..\GestorProdutos.Application\GestorProdutos.Application.csproj" />
     <ProjectReference Include="..\GestorProdutos.Base\GestorProdutos.Base\GestorProdutos.Base.csproj" />
+    <ProjectReference Include="..\GestorProdutos.Catalogo.Data\GestorProdutos.Catalogo.Data.csproj" />
     <ProjectReference Include="..\GestorProdutos.Catalogo.Domain\GestorProdutos.Catalogo.Domain.csproj" />
     <ProjectReference Include="..\GestorProdutos.Migracoes\GestorProdutos.Migracoes.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Update="GestorProdutos.Sincronizacao.API.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 

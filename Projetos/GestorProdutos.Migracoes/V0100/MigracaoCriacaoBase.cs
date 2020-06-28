@@ -87,6 +87,12 @@ namespace NDD.GestorProdutos.Migracoes.V0100
                 .WithColumn("Ativo")
                 .AsBoolean()
                 .NotNullable()
+                .WithColumnDescription("Nome da licença")
+
+                .WithColumn("Sincronizado")
+                .AsBoolean()
+                .NotNullable()
+                .WithDefaultValue(false)
                 .WithColumnDescription("Nome da licença");
 
             return migration;

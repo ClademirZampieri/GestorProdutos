@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace GestorProduto.Sincronizacao.API.Base
+namespace GestorProdutos.Sincronizacao.API.Base
 {
     [Route("api/[controller]")]
     public class PublicController : ApiControllerBase

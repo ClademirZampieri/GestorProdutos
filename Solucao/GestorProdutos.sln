@@ -13,9 +13,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infra Layer", "4 - Infr
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testes", "Testes", "{C7B2D8EF-4522-4D5A-B908-B2F2377DF1F1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestorProduto.Sincronizacao.API", "..\Projetos\GestorProduto.Sincronizacao.API\GestorProduto.Sincronizacao.API.csproj", "{1176D0C2-A740-45DE-BAF1-6AA520E3491D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestorProdutos.Sincronizacao.API", "..\Projetos\GestorProduto.Sincronizacao.API\GestorProdutos.Sincronizacao.API.csproj", "{1176D0C2-A740-45DE-BAF1-6AA520E3491D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestorProduto.Sincronizacao.Host", "..\Projetos\GestorProduto.Sincronizacao.Host\GestorProduto.Sincronizacao.Host.csproj", "{BA1EEE6B-CCE7-4416-845D-A7561DEBACB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestorProdutos.Sincronizacao.Host", "..\Projetos\GestorProduto.Sincronizacao.Host\GestorProdutos.Sincronizacao.Host.csproj", "{BA1EEE6B-CCE7-4416-845D-A7561DEBACB2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestorProdutos.Migracoes", "..\Projetos\GestorProdutos.Migracoes\GestorProdutos.Migracoes.csproj", "{B946F9C8-640C-48BD-8EBF-C8FEA0E30BED}"
 EndProject

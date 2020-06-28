@@ -1,4 +1,4 @@
-﻿namespace GestorProduto.Sincronizacao.API.Features.Share
+﻿namespace GestorProdutos.Sincronizacao.API.Features.Share
 {
     /// <summary>
     /// Resposta padrão do adaptador no produto

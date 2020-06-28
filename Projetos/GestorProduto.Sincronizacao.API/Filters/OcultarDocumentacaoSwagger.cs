@@ -4,7 +4,7 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Collections.Generic;
 using System.IO;
 
-namespace GestorProduto.Sincronizacao.API.Filters
+namespace GestorProdutos.Sincronizacao.API.Filters
 {
     public class OcultarDocumentacaoSwagger : IDocumentFilter
     {

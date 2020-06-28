@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 
-namespace GestorProduto.Sincronizacao.API
+namespace GestorProdutos.Sincronizacao.API
 {
     public class Program
     {

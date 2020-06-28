@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace GestorProduto.Sincronizacao.API.Exceptions
+namespace GestorProdutos.Sincronizacao.API.Exceptions
 {
     public class ValidationFailure
     {

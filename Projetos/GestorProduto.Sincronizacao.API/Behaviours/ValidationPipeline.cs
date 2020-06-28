@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace GestorProduto.Sincronizacao.API.Behaviours
+namespace GestorProdutos.Sincronizacao.API.Behaviours
 {
     public class ValidationPipeline<TRequest, TResponse> : IPipelineBehavior<TRequest, Result<Exception, TResponse>>
         where TRequest : IRequest<Result<Exception, TResponse>>

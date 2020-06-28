@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace GestorProduto.Sincronizacao.API.Exceptions
+namespace GestorProdutos.Sincronizacao.API.Exceptions
 {
     public class ValidationFailureMapper
     {

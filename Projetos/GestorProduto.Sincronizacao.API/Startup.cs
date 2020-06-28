@@ -1,7 +1,7 @@
 using FluentValidation.AspNetCore;
 using GestorProdutos.Base.Enums;
 using GestorProdutos.Catalogo.Domain.Configuracoes;
-using GestorProduto.Sincronizacao.API.Extensions;
+using GestorProdutos.Sincronizacao.API.Extensions;
 using Microsoft.AspNet.OData.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -18,15 +18,22 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using GestorProdutos.Core.DomainObjects;
-using GestorProduto.Sincronizacao.API.Filters;
+using GestorProdutos.Sincronizacao.API.Filters;
 using NDD.GestorProdutos.Migracoes;
+using GestorProdutos.Sincronizacao.API;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
+using MediatR;
+using GestorProdutos.Catalogo.Data;
 
-namespace GestorProduto.Sincronizacao.API
+namespace GestorProdutos.Sincronizacao.API
 {
     public class Startup
     {
         private static readonly string SecaoRecursosHabilitaveis = "HabilitarRecurso";
-        private static readonly string VariavelAmbienteAmbienteProducao = "GESTORPRODUTO_AMBIENTE_PRODUCAO";
+        private static readonly string VariavelAmbienteAmbienteProducao = "GestorProdutos_AMBIENTE_PRODUCAO";
         public static readonly Container Container = new Container();
 
         private readonly GestorProdutosConfiguracoes _configuracoes;
@@ -45,9 +52,6 @@ namespace GestorProduto.Sincronizacao.API
             _configuracoes = new GestorProdutosConfiguracoes();
             configuration.Bind(_configuracoes);
 
-            //configuration.AdicionarConfiguracoesRepositorioLicenciamento();
-            //configuration.PegarConfiguracoesParaProcessamentoDeLicenca();
-
             _caminhoArquivoLog = configuration["CaminhoArquivoLog"];
 
             Container.Options.AllowOverridingRegistrations = true;
@@ -56,13 +60,9 @@ namespace GestorProduto.Sincronizacao.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper();
-            //services.AdicionarProvedorServicoMSDI();
 
             services.AddCors();
             services.AddSimpleInjector(Container);
-            //services.AdicionarDependenciasNoJobRenovacaoLicencas();
-            //services.AdicionarProcessamentoDeLicencas();
-            //services.AdicionarDependenciasRepositorioslicenciamentoMSSql();
 
             InicializarRecursosHabilitaveis(services);
             services.AddDependencies(Container, Configuration, HostingEnvironment);
@@ -114,12 +114,27 @@ namespace GestorProduto.Sincronizacao.API
 
             services.Configure<GestorProdutosConfiguracoes>(Configuration);
 
-            services.AddScoped(sp =>
-                sp.GetService<IOptionsSnapshot<GestorProdutosConfiguracoes>>().Value);
+    //        services.AddDbContext<ApplicationDbContext>(options =>
+    //options.UseSqlServer(_configuracoes.AppSettings.ConnectionString));
 
-            //services.AdicionarMigracoes(_configuracoes.AppSettings.ConnectionString, DbProviderEnum.SqlServer);
+            services.AddDbContext<CatalogoContext>(options =>
+                options.UseSqlServer(_configuracoes.AppSettings.ConnectionString));
+
+            //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            //services.AddAutoMapper(typeof(DomainToViewModelMappingProfile), typeof(ViewModelToDomainMappingProfile));
+
+            services.AddMediatR(typeof(Startup));
+
+            services.AddScoped(sp => sp.GetService<IOptionsSnapshot<GestorProdutosConfiguracoes>>().Value);
+
+            services.RegisterServices();
+
+            services.AddTransient<GestorProdutosConfiguracoes>(c => new GestorProdutosConfiguracoes());
+            services.AddTransient<GestorProdutosConfiguracoes>(c => _configuracoes);
+
+            services.AdicionarMigracoes(_configuracoes.AppSettings.ConnectionString, DbProviderEnum.SqlServer);
         }
-
 
         private void InicializarRecursosHabilitaveis(IServiceCollection services)
         {
@@ -154,7 +169,7 @@ namespace GestorProduto.Sincronizacao.API
             Container.RegisterMvcControllers(app);
             Container.AutoCrossWireAspNetComponents(app);
 
-            // Captura o valor da variavel de ambiente(GESTORPRODUTO_AMBIENTE_PRODUCAO)
+            // Captura o valor da variavel de ambiente(GestorProdutos_AMBIENTE_PRODUCAO)
             string CentralDeSolucoesAmbienteDeProducao = Environment.GetEnvironmentVariable(VariavelAmbienteAmbienteProducao);
 
             // Verifica se o ambiente não é de Produção

@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GestorProdutos.Sincronizacao.API</name>
+    </assembly>
+    <members>
+        <member name="P:GestorProdutos.Sincronizacao.API.Base.ApiControllerBase.UserId">
+            <summary>
+            Retorna o Id do usário que está fazendo a chamada.
+            </summary>
+        </member>
+        <member name="M:GestorProdutos.Sincronizacao.API.Base.ApiControllerBase.HandleCommand``2(NDD.CentralSolucoes.Base.Estruturas.Result{``0,``1})">
+            <summary>
+            Manuseia o result. Valida se é necessário retornar erro ou o próprio TSuccess
+            </summary> 
+            <typeparam name="TFailure"></typeparam>
+            <typeparam name="TSuccess"></typeparam>
+            <param name="result">Objeto Result utilizado nas chamadas.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GestorProdutos.Sincronizacao.API.Base.ApiControllerBase.HandleQueryable``2(NDD.CentralSolucoes.Base.Estruturas.Result{System.Exception,System.Linq.IQueryable{``0}},Microsoft.AspNet.OData.Query.ODataQueryOptions{``0})">
+             <summary>
+             Manuseia a query para aplicar as opções do odata.
+            
+             Esse método vai gerar o PageResult associando os dados (query) com as opções do odata (queryOptions) 
+             após isso ele monta a resposta HTTP solicitada, conforme headers.
+             
+             </summary>
+             <typeparam name="TQueryOptions">Tipo do obj de origem (domínio)</typeparam>
+             <typeparam name="TResult">Tipo de retorno </typeparam>
+             <param name="result">Objeto Result retornado pelas chamadas.(TQueryOptions)</param>
+             <param name="queryOptions">OdataQueryOptions(TQueryOptions)</param>
+             <returns>IActionResult(TResult) com o resultado da operação</returns>
+        </member>
+        <member name="M:GestorProdutos.Sincronizacao.API.Base.ApiControllerBase.HandlePageResult``2(System.Linq.IQueryable{``0},Microsoft.AspNet.OData.Query.ODataQueryOptions{``0})">
+            <summary>
+            Aplica o filtro (odata) a query e retora um pageresult criado através do project da TQueryOptions para TResult. 
+            </summary>
+            <typeparam name="TQueryOptions">Tipo do obj de origem (domínio)</typeparam>
+            <typeparam name="TResult">Tipo de retorno objQuery</typeparam>
+            <param name="query">IQueryable(TQueryOptions)</param>
+            <param name="queryOptions">OdataQueryOptions</param>
+            <returns>PageResult(TResult)</returns>
+        </member>
+        <member name="M:GestorProdutos.Sincronizacao.API.Base.ApiControllerBase.HandleFailure``1(``0)">
+            <summary>
+            Verifica a exceção passada por parametro para passar o StatusCode correto para o frontend.
+            </summary>
+            <typeparam name="T">Qualquer classe que herde de Exeption</typeparam>
+            <param name="exceptionToHandle">obj de exceção</param>
+            <returns></returns>
+        </member>
+        <member name="M:GestorProdutos.Sincronizacao.API.Base.ApiControllerBase.HandleValidationFailure``1(System.Collections.Generic.IList{``0})">
+            <summary>
+            Retorna IHttpStatusCode de erro + erros da validação.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="validationFailure">Erros de validação (ValidationFailure)</param>
+            <returns>IActionResult com os erros e status code padrão</returns>
+        </member>
+        <member name="M:GestorProdutos.Sincronizacao.API.Base.ApiControllerBase.GetClaimValue(System.String)">
+            <summary>
+            Método responsável por ler do token, no contexto da requisição, as claims codificadas.
+            </summary>
+            <param name="type">É o nome da claim (atributo) desejada para leitura no token</param>
+            <returns>O valor correspondente a claim</returns>
+        </member>
+        <member name="M:GestorProdutos.Sincronizacao.API.Base.ApiControllerBase.HandleQuery``2(NDD.CentralSolucoes.Base.Estruturas.Result{System.Exception,``0})">
+            <summary>
+            Manuseia o result. Verifica se a resposta é uma falha ou sucesso, retornando os dados apropriados. 
+            É importante destacar que este método realiza o mapeamento da classe TSource em TResult
+            </summary> 
+            <typeparam name="TSource">Classe de origem (ex.: domínio)</typeparam>
+            <typeparam name="TResult">ViewModel</typeparam>
+            <param name="result">Objeto Result retornado pelas chamadas.</param>
+            <returns>Resposta apropriada baseado no result enviado como parâmetro</returns>
+        </member>
+        <member name="M:GestorProdutos.Sincronizacao.API.Base.ApiControllerBase.HandleCSVFile``2(System.Linq.IQueryable{``0},Microsoft.AspNet.OData.Query.ODataQueryOptions{``0})">
+            <summary>
+            Aplica o filtro (odata) a query, monta um HttpResultMessage com o arquivo CSV
+            </summary>
+            <typeparam name="TQueryOptions">Tipo do obj de origem (domínio)</typeparam>
+            <typeparam name="TResult">Tipo de retorno objQuery</typeparam>
+            <param name="query">IQueryable(TQueryOptions)</param>
+            <param name="queryOptions">OdataQueryOptions</param>
+            <returns>HttpResponseMessage</returns>
+        </member>
+        <member name="T:GestorProdutos.Sincronizacao.API.Base.I18nController">
+             <summary>
+             Controlador de i18n (internationalization)
+            
+             Essa classe é responsável por prover as resources de tradução apra o client
+            
+             </summary>
+        </member>
+        <member name="M:GestorProdutos.Sincronizacao.API.Base.I18nController.Get(System.String)">
+            <summary>
+            Interface para obter as resources de uma linguagem específica
+            </summary>
+            <param name="lang">É a linguagem que deseja obter as resources. Provém diretamente da url pela configuração do Route</param>
+            <returns>Retorna as resources de acordo com a linguagem</returns>
+        </member>
+        <member name="M:GestorProdutos.Sincronizacao.API.Base.PublicController.IsAlive">
+            <summary>
+            Informa para o client que está ativa
+            Útil para validar tokens e para descobrir o estado da API
+            </summary>
+        </member>
+        <member name="T:GestorProdutos.Sincronizacao.API.Exceptions.ExceptionPayload">
+             <summary>
+              Classe que representa uma exceção lançada para o client como resposta.
+            </summary>
+        </member>
+        <member name="M:GestorProdutos.Sincronizacao.API.Exceptions.ExceptionPayload.New``1(``0,System.Int32,System.Collections.Generic.List{GestorProdutos.Sincronizacao.API.Exceptions.ValidationFailure})">
+            <summary>
+            Método para criar um novo ExceptionPayload de uma exceção de negócio.
+                     
+            As exceções de negócio, que são providas no NDDResearch.Domain
+            são identificadas pelos códigos no enum ErrorCodes. 
+            
+            Assim, esse método monta o ExceptionPayload, que será o código retornado o cliente, 
+            com base na exceção lançada.
+            
+            </summary>
+            <param name="exception">É a exceção lançada</param>
+            <param name="errorCode">Código HTTP de erro</param>
+            <param name="failures">Lista de problemas de validação</param>
+            <returns>ExceptionPayload contendo o código do erro e a mensagem da da exceção que foi lançada </returns>
+        </member>
+        <member name="M:GestorProdutos.Sincronizacao.API.Features.GestorProdutosController.CriarProduto(GestorProdutos.Application.Features.Catalogo.CriarProduto.CriarProdutoCommand)">
+            <summary>
+            Cria um novo produto na base de dados
+            </summary>
+        </member>
+        <member name="M:GestorProdutos.Sincronizacao.API.Features.GestorProdutosController.AtualizarProduto(GestorProdutos.Application.Features.Catalogo.AtualizarProduto.AtualizarProdutoCommand)">
+            <summary>
+            Atualiza os dados de um determinado produto na base de dados
+            </summary>
+        </member>
+        <member name="T:GestorProdutos.Sincronizacao.API.Features.Share.ListaDeRespostasDeRequisicaoViewModel">
+            <summary>
+            Resposta padrao a uma requisicao realizada a Api de servicos
+            </summary>
+        </member>
+        <member name="P:GestorProdutos.Sincronizacao.API.Features.Share.ListaDeRespostasDeRequisicaoViewModel.Respostas">
+            <summary>
+            Colecao de respostas dadas pelos adaptadores
+            </summary>
+        </member>
+        <member name="T:GestorProdutos.Sincronizacao.API.Features.Share.RespostaDeRequisicaoViewModel">
+            <summary>
+            Resposta padrão do adaptador no produto
+            </summary>
+        </member>
+        <member name="P:GestorProdutos.Sincronizacao.API.Features.Share.RespostaDeRequisicaoViewModel.Codigo">
+            <summary>
+            Codigo da resposta
+            </summary>
+        </member>
+        <member name="P:GestorProdutos.Sincronizacao.API.Features.Share.RespostaDeRequisicaoViewModel.Mensagem">
+            <summary>
+            Mensagem da resposta
+            </summary>
+        </member>
+        <member name="P:GestorProdutos.Sincronizacao.API.Features.Share.RespostaDeRequisicaoViewModel.TipoResposta">
+            <summary>
+            Tipo de resposta, onde ela pode assumir os seguintes retornos
+            <code>0 = Informacao </code>
+            <code>1 = Aviso </code>
+            <code>2 = Erro </code>
+            </summary>
+        </member>
+        <member name="P:GestorProdutos.Sincronizacao.API.Features.Share.RespostaDeRequisicaoViewModel.Descricao">
+            <summary>
+            Descricao detalhada de uma resposta, este campo é opcional.
+            </summary>
+        </member>
+        <member name="M:GestorProdutos.Sincronizacao.API.Filters.ExceptionHandlerAttribute.OnException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <summary>
+            Método invocado quando ocorre uma exceção no controller
+            </summary>
+            <param name="context">É o contexto atual da requisição</param>
+        </member>
+    </members>
+</doc>

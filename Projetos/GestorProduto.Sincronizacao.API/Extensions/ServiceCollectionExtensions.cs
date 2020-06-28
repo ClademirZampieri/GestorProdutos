@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using GestorProduto.Sincronizacao.API.Behaviours;
+using GestorProdutos.Sincronizacao.API.Behaviours;
 using SimpleInjector;
 using SimpleInjector.Integration.AspNetCore.Mvc;
 using SimpleInjector.Lifestyles;
@@ -12,9 +12,9 @@ using System;
 using System.Reflection;
 using GestorProdutos.Infra.Extensions;
 using AutoMapper;
-using GestorProduto.Sincronizacao.API.Filters;
+using GestorProdutos.Sincronizacao.API.Filters;
 
-namespace GestorProduto.Sincronizacao.API.Extensions
+namespace GestorProdutos.Sincronizacao.API.Extensions
 {
     public static class ServiceCollectionExtensions
     {

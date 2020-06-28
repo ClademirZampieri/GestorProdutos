@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace GestorProduto.Sincronizacao.API.Exceptions
+namespace GestorProdutos.Sincronizacao.API.Exceptions
 {
     /// <summary>
     ///  Classe que representa uma exceção lançada para o client como resposta.

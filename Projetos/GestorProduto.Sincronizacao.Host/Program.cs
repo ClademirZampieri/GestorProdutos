@@ -1,6 +1,6 @@
-﻿using System;
+﻿sing System;
 
-namespace GestorProduto.Sincronizacao.Host
+namespace GestorProdutos.Sincronizacao.Host
 {
     class Program
     {

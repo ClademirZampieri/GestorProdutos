@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using FluentValidation;
-using GestorProduto.Sincronizacao.API.Exceptions;
+using GestorProdutos.Sincronizacao.API.Exceptions;
 using GestorProdutos.Base.Exceptions;
 using GestorProdutos.Infra.Csv;
 using GestorProdutos.Infra.Extensions;
@@ -20,7 +20,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GestorProduto.Sincronizacao.API.Base
+namespace GestorProdutos.Sincronizacao.API.Base
 {
     public class ApiControllerBase : ControllerBase
     {

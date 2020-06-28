@@ -2,12 +2,12 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using NDD.CentralSolucoes.Base.Estruturas;
-using GestorProduto.Sincronizacao.API.Base;
+using GestorProdutos.Sincronizacao.API.Base;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace GestorProduto.Sincronizacao.API.Features.Share
+namespace GestorProdutos.Sincronizacao.API.Features.Share
 {
     public class ApiBaseExecucaoControlador : ApiControllerBase
     {
