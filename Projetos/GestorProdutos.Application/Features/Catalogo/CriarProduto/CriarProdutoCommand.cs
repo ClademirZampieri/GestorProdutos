@@ -8,6 +8,7 @@ namespace GestorProdutos.Application.Features.Catalogo.CriarProduto
 {
     public class CriarProdutoCommand : IRequest<Result<Exception, RespostaDeRequisicao>>
     {
+        public Guid Id { get; set; }
         public string Nome { get; set; }
         public bool Ativo { get; set; }
         public decimal Valor { get; set; }

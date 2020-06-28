@@ -29,15 +29,19 @@ namespace GestorProdutos.Catalogo.Data.Repository
 
         public async Task<IEnumerable<Produto>> ObterProdutosNaoSincronizados()
         {
-            var query = _context.Produtos.Where(x => x.StatusSincronizacao != StatusSincronizacaoEnum.Sincronizacado);
+            var query = _context.Produtos.Where(x => x.StatusSincronizacao != StatusSincronizacaoEnum.Sincronizado);
 
             return await query.AsNoTracking().ToListAsync();
         }
 
         public async Task<Produto> ObterPorId(Guid id)
         {
-            //return await _context.Produtos.AsNoTracking().FirstOrDefaultAsync(p => p.Id == id);
             return await _context.Produtos.FindAsync(id);
+        }
+
+        private async Task<StatusSincronizacaoEnum> ObterStatusProduto(Guid id)
+        {
+            return await Task.Run(() => _context.Produtos.Where(x => x.Id == id).Select(y => y.StatusSincronizacao).FirstOrDefault());
         }
 
         public void Adicionar(Produto produto)
@@ -48,7 +52,13 @@ namespace GestorProdutos.Catalogo.Data.Repository
 
         public void Atualizar(Produto produto)
         {
-            produto.StatusSincronizacao = StatusSincronizacaoEnum.PendenteDeAtualizacao;
+            var statusAtual = ObterStatusProduto(produto.Id).Result;
+
+            if(statusAtual != StatusSincronizacaoEnum.PendenteDeCriacao)
+            {
+                produto.StatusSincronizacao = StatusSincronizacaoEnum.PendenteDeAtualizacao;
+            }
+
             _context.DetachLocal(produto, produto.Id);
             _context.Produtos.Update(produto);
         }

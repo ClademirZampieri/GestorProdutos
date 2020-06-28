@@ -1,7 +1,4 @@
-﻿using GestorProdutos.Catalogo.Domain.Events;
-using GestorProdutos.Core.Communication.Mediator;
-using GestorProdutos.Core.Messages.CommonMessages.Notifications;
-using System;
+﻿using System;
 using System.Threading.Tasks;
 
 namespace GestorProdutos.Catalogo.Domain
@@ -29,6 +26,7 @@ namespace GestorProdutos.Catalogo.Domain
             if (produto == null) return false;
 
             produto.DebitarEstoque(quantidade);
+
 
             _produtoRepository.Atualizar(produto);
             return true;

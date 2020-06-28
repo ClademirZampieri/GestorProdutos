@@ -25,14 +25,14 @@ namespace NDD.Gerenciamento.Geral.Clients.ApiCentralSolucoes.NFSe.NFSeEmissao
         public async Task<Result<Exception, Unit>> AtualizarProdutoAsync(AtualizarProdutoCommand command)
         {
             var url = $"{_urlApiSincronizacao}/AtualizarProduto";
-            var response = await _httpClient.SendAsync(HttpMethod.Put, url, command);
+            var response = await _httpClient.SendAsync(HttpMethod.Post, url, command);
             return response.ProcessResultadoApi();
         }
 
         public async Task<Result<Exception, Unit>> CriarProdutoAsync(CriarProdutoCommand command)
         {
             var url = $"{_urlApiSincronizacao}/CriarProduto";
-            var response = await _httpClient.SendAsync(HttpMethod.Put, url, command);
+            var response = await _httpClient.SendAsync(HttpMethod.Post, url, command);
             return response.ProcessResultadoApi();
         }
     }

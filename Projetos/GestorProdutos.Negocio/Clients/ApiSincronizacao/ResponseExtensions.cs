@@ -14,9 +14,9 @@ namespace NDD.Gerenciamento.Geral.Clients.ApiCentralSolucoes
         {
             if (response.StatusCode == HttpStatusCode.OK)
             {
-                var responseObject = JsonConvert.DeserializeObject<RespostaRequisicaoPadraoViewModel>(response.Content.ReadAsStringAsync().GetAwaiter().GetResult());
-                if (responseObject.Resposta.Codigo != 100)
-                    return new BusinessException(ErrorCodes.Unhandled, responseObject.Resposta.Mensagem);
+                var responseObject = JsonConvert.DeserializeObject<RespostaRequisicaoViewModel>(response.Content.ReadAsStringAsync().GetAwaiter().GetResult());
+                if (responseObject.Codigo != 1)
+                    return new BusinessException(ErrorCodes.Unhandled, responseObject.Mensagem);
                 else
                     return Unit.Successful;
             }

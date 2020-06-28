@@ -1,7 +1,6 @@
 ﻿using GestorProdutos.Catalogo.Data;
 using GestorProdutos.Catalogo.Data.Repository;
 using GestorProdutos.Catalogo.Domain;
-using GestorProdutos.Catalogo.Domain.Events;
 using GestorProdutos.Core.Communication.Mediator;
 using GestorProdutos.Core.Messages.CommonMessages.Notifications;
 using GestorProdutos.Negocio.Services;
@@ -25,9 +24,6 @@ namespace GestorProdutos.Sincronizacao.API
             services.AddScoped<IProdutoAppService, ProdutoAppService>();
             services.AddScoped<IEstoqueService, EstoqueService>();
             services.AddScoped<CatalogoContext>();
-
-            services.AddScoped<INotificationHandler<ProdutoAbaixoEstoqueEvent>, ProdutoEventHandler>();
-
         }
     }
 }

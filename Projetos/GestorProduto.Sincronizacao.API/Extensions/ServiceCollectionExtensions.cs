@@ -40,8 +40,6 @@ namespace GestorProdutos.Sincronizacao.API.Extensions
         {
             //É necessário registrar para utilizar o i18n controller. Com o DI resolver padrão do asp.net core não é necessário fazer isso
             container.RegisterInstance<IHostingEnvironment>(hostingEnvironment);
-
-            //NDD.Licenciamento.Infra.Data.Inicializacao.AdicionarDependencias(services, configuration, hostingEnvironment.EnvironmentName);
         }
 
         public static void AddMediator(this IServiceCollection services, Container container)

@@ -54,7 +54,7 @@ namespace NDD.GestorProdutos.Migracoes.V0100
 
                 .WithColumn("Id")
                 .AsGuid()
-                .PrimaryKey("PK_Licenca")
+                .PrimaryKey("PK_Produtos")
                 .Unique()
                 .NotNullable()
                 .WithColumnDescription("Identificador único")
@@ -90,7 +90,7 @@ namespace NDD.GestorProdutos.Migracoes.V0100
                 .WithColumnDescription("Nome da licença")
 
                 .WithColumn("StatusSincronizacao")
-                .AsInt16()
+                .AsInt32()
                 .NotNullable()
                 .WithDefaultValue(2)
                 .WithColumnDescription("Status da sincronização, podendo ser: 1 - sincronizado, 2 - criação pendente de sincronização, 3 - atualização pendente de sincronização");

@@ -2,7 +2,7 @@
 {
     public enum StatusSincronizacaoEnum
     {
-        Sincronizacado = 1,
+        Sincronizado = 1,
         PendenteDeCriacao = 2,
         PendenteDeAtualizacao = 3,
     }
